@@ -1,5 +1,7 @@
 # CloudSchema
 
+![CloudSchema cover](cloud-cover.png)
+
 CloudSchema is a multi-agent infrastructure reasoning tutor for beginner engineers. It turns a plain-language project description into Azure architecture choices, generates Bicep, validates it with the local Bicep compiler, repairs compiler errors, reviews quality, and explains every generated code block.
 
 ## Hackathon Submission
