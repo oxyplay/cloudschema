@@ -1,0 +1,73 @@
+{
+  "name": "CloudSchema Reasoning Agents Evaluation Set",
+  "description": "Synthetic manual evaluation cases for the Reasoning Agents hackathon submission. All prompts and expected behaviours are demo-only and contain no real customer, employee, or production data.",
+  "version": "1.0.0",
+  "cases": [
+    {
+      "id": "RA-001",
+      "title": "Baseline SaaS infrastructure with repair loop",
+      "prompt": "I am a beginner building a small SaaS app with a web frontend, an API, file uploads, monitoring, and safe secret storage.",
+      "modules": ["app-service", "storage", "key-vault", "application-insights"],
+      "injectDemoError": true,
+      "expected": [
+        "The reasoning trace includes generated, compile_failed, repaired, and compile_passed steps.",
+        "The final Bicep includes App Service, Storage Account, Key Vault, and Application Insights resources.",
+        "Storage Account enforces HTTPS-only traffic and TLS 1.2 or newer.",
+        "Every Azure resource includes owner and environment tags through the shared tags variable.",
+        "The Generated Bicep viewer explains params, var tags, every resource block, and outputs."
+      ]
+    },
+    {
+      "id": "RA-002",
+      "title": "Secret-safe backend workflow",
+      "prompt": "Build an internal API that stores documents, reads secrets safely, and needs basic telemetry. Do not put credentials in code.",
+      "modules": ["app-service", "storage", "key-vault", "application-insights"],
+      "injectDemoError": false,
+      "expected": [
+        "The final Bicep does not include real passwords, API keys, tokens, or connection strings as literals.",
+        "Key Vault is included for secret storage.",
+        "Quality review calls out any missing identity or Key Vault access wiring as an improvement rather than inventing secrets.",
+        "Safety notes remind the user not to commit real secrets."
+      ]
+    },
+    {
+      "id": "RA-003",
+      "title": "Event-driven workload reasoning",
+      "prompt": "I need a scheduled job that processes uploaded CSV reports and stores outputs for a dashboard.",
+      "modules": ["functions", "storage", "application-insights"],
+      "injectDemoError": false,
+      "expected": [
+        "The architecture includes Azure Functions, Storage Account, and Application Insights.",
+        "The Bicep compiler passes or shows a repair attempt before passing.",
+        "The quality review checks reliability and observability implications.",
+        "The code block explanations distinguish the Function App resource from supporting resources."
+      ]
+    },
+    {
+      "id": "RA-004",
+      "title": "Grounded standards application",
+      "prompt": "Create a beginner-friendly Azure setup for a static marketing site with global delivery and simple observability.",
+      "modules": ["static-web-app", "cdn", "application-insights"],
+      "injectDemoError": false,
+      "expected": [
+        "The response lists standards applied from the synthetic Foundry IQ knowledge source.",
+        "Generated resources include owner and environment tags when supported by the resource shape.",
+        "The quality review flags missing or weak observability/security areas instead of claiming production readiness.",
+        "Deploy commands are shown as suggestions only."
+      ]
+    },
+    {
+      "id": "RA-005",
+      "title": "Quality critic catches production gaps",
+      "prompt": "We are testing a beginner e-commerce backend with product images, relational data, safe secret storage, and monitoring.",
+      "modules": ["app-service", "storage", "sql", "key-vault", "application-insights"],
+      "injectDemoError": false,
+      "expected": [
+        "The final template includes compute, storage, SQL, Key Vault, and monitoring resources.",
+        "The quality review identifies practical gaps such as access wiring, diagnostics, cost, or reliability tradeoffs.",
+        "The explanation remains beginner-friendly and avoids unsupported claims.",
+        "No automatic deployment is performed."
+      ]
+    }
+  ]
+}

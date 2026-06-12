@@ -1,0 +1,128 @@
+[
+  {
+    "id": "static-web-app",
+    "name": "Static Web App",
+    "category": "frontend",
+    "beginnerDescription": "Hosts a static frontend with built-in global distribution and simple GitHub-based deployment.",
+    "bicepResourceType": "Microsoft.Web/staticSites"
+  },
+  {
+    "id": "app-service",
+    "name": "App Service",
+    "category": "compute",
+    "beginnerDescription": "Runs a web app or API without managing servers.",
+    "bicepResourceType": "Microsoft.Web/sites"
+  },
+  {
+    "id": "functions",
+    "name": "Azure Functions",
+    "category": "compute",
+    "beginnerDescription": "Runs event-driven backend code and scheduled jobs.",
+    "bicepResourceType": "Microsoft.Web/sites"
+  },
+  {
+    "id": "container-apps",
+    "name": "Container Apps",
+    "category": "compute",
+    "beginnerDescription": "Runs containerised microservices and jobs with auto-scaling and managed networking.",
+    "bicepResourceType": "Microsoft.App/containerApps"
+  },
+  {
+    "id": "aks",
+    "name": "Azure Kubernetes Service",
+    "category": "compute",
+    "beginnerDescription": "Managed Kubernetes cluster for container orchestration at scale.",
+    "bicepResourceType": "Microsoft.ContainerService/managedClusters"
+  },
+  {
+    "id": "cosmos-db",
+    "name": "Azure Cosmos DB",
+    "category": "data",
+    "beginnerDescription": "Globally distributed NoSQL or document database with low latency.",
+    "bicepResourceType": "Microsoft.DocumentDB/databaseAccounts"
+  },
+  {
+    "id": "storage",
+    "name": "Storage Account",
+    "category": "data",
+    "beginnerDescription": "Stores files, images, logs, queues, and static assets.",
+    "bicepResourceType": "Microsoft.Storage/storageAccounts"
+  },
+  {
+    "id": "sql",
+    "name": "Azure SQL Database",
+    "category": "data",
+    "beginnerDescription": "Provides a managed relational database for application data.",
+    "bicepResourceType": "Microsoft.Sql/servers/databases"
+  },
+  {
+    "id": "redis",
+    "name": "Azure Cache for Redis",
+    "category": "data",
+    "beginnerDescription": "In-memory cache for fast data access and session state.",
+    "bicepResourceType": "Microsoft.Cache/redis"
+  },
+  {
+    "id": "service-bus",
+    "name": "Service Bus",
+    "category": "integration",
+    "beginnerDescription": "Reliable asynchronous messaging between applications and services.",
+    "bicepResourceType": "Microsoft.ServiceBus/namespaces"
+  },
+  {
+    "id": "event-hubs",
+    "name": "Event Hubs",
+    "category": "integration",
+    "beginnerDescription": "High-throughput event streaming for telemetry and real-time analytics.",
+    "bicepResourceType": "Microsoft.EventHub/namespaces"
+  },
+  {
+    "id": "key-vault",
+    "name": "Key Vault",
+    "category": "security",
+    "beginnerDescription": "Stores application secrets, connection strings, certificates, and keys.",
+    "bicepResourceType": "Microsoft.KeyVault/vaults"
+  },
+  {
+    "id": "app-configuration",
+    "name": "App Configuration",
+    "category": "security",
+    "beginnerDescription": "Centralised feature flags and application settings with fast retrieval.",
+    "bicepResourceType": "Microsoft.AppConfiguration/configurationStores"
+  },
+  {
+    "id": "application-insights",
+    "name": "Application Insights",
+    "category": "observability",
+    "beginnerDescription": "Collects application telemetry, traces, failures, and performance data.",
+    "bicepResourceType": "Microsoft.Insights/components"
+  },
+  {
+    "id": "log-analytics",
+    "name": "Log Analytics Workspace",
+    "category": "observability",
+    "beginnerDescription": "Centralised log storage and querying for monitoring and diagnostics.",
+    "bicepResourceType": "Microsoft.OperationalInsights/workspaces"
+  },
+  {
+    "id": "cdn",
+    "name": "Azure CDN",
+    "category": "networking",
+    "beginnerDescription": "Delivers content faster with edge caching and custom domains.",
+    "bicepResourceType": "Microsoft.Cdn/profiles"
+  },
+  {
+    "id": "front-door",
+    "name": "Azure Front Door",
+    "category": "networking",
+    "beginnerDescription": "Global load balancer and web application firewall for scalable entry points.",
+    "bicepResourceType": "Microsoft.Network/frontDoors"
+  },
+  {
+    "id": "api-management",
+    "name": "API Management",
+    "category": "networking",
+    "beginnerDescription": "Publishes, secures, and manages APIs with rate limits and developer portals.",
+    "bicepResourceType": "Microsoft.ApiManagement/service"
+  }
+]
