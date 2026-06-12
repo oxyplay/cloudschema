@@ -10,7 +10,7 @@ Track: **Battle #2 - Reasoning Agents with Microsoft Foundry**
 
 Submission title: **CloudSchema: Multi-Agent Infrastructure Reasoning Tutor**
 
-One-liner: CloudSchema uses specialised reasoning agents to transform a beginner project idea into validated Azure Bicep, grounded in synthetic enterprise standards and checked by compiler, repair, review, and explanation loops.
+One-liner: CloudSchema uses specialized reasoning agents to transform a beginner project idea into validated Azure Bicep, grounded in enterprise standards and checked by compiler, repair, review, and explanation loops.
 
 Full submission notes: [`docs/REASONING_AGENTS_SUBMISSION.md`](docs/REASONING_AGENTS_SUBMISSION.md)
 
@@ -29,10 +29,10 @@ Submission checklist: [`docs/SUBMISSION_CHECKLIST.md`](docs/SUBMISSION_CHECKLIST
 
 ## Multi-Agent Architecture
 
-CloudSchema is implemented as an orchestrated reasoning workflow with specialised agent responsibilities:
+CloudSchema is implemented as an orchestrated reasoning workflow with specialized agent responsibilities:
 
 - **Architecture Planner** maps the project description and selected modules into an Azure architecture graph.
-- **Foundry IQ Standards Agent** retrieves synthetic company infrastructure standards from `foundry_iq_knowledge/company_standards.md`.
+- **Foundry IQ Standards Agent** retrieves approved infrastructure standards through the standards provider, using Azure AI Search when configured and a synthetic local fallback for reliable demo mode.
 - **Bicep Generator** produces an initial infrastructure-as-code template.
 - **Compiler Validator** calls `az bicep build` as an external deterministic verifier.
 - **Self-Repair Agent** uses compiler feedback to repair invalid Bicep and retry validation.
@@ -66,7 +66,7 @@ npm install
 npm run dev
 ```
 
-The app works without Azure OpenAI credentials by using a deterministic Bicep generator. Keep `Inject demo compiler error` enabled to demonstrate the self-repair loop.
+The app remains reliable without Azure OpenAI credentials by using deterministic local fallbacks. Keep `Inject demo compiler error` enabled to demonstrate the self-repair loop.
 
 Run the automated synthetic evaluation suite:
 
@@ -100,6 +100,12 @@ AZURE_LOCATION=eastus
 
 ## Demo Flow
 
+Example prompt:
+
+```text
+I am building a small SaaS app with a web frontend, an API, file uploads, monitoring, and safe secret storage.
+```
+
 1. Describe a beginner project.
 2. Select Azure modules such as App Service, Storage, Key Vault, SQL, Functions, and Application Insights.
 3. CloudSchema reads Foundry IQ company standards.
@@ -132,6 +138,12 @@ The synthetic evaluation set is in [`evals/reasoning-agent-evals.json`](evals/re
 - quality review signal
 
 Use these prompts during the demo or as manual regression checks before submission.
+
+Run the automated evaluation suite with:
+
+```bash
+npm run eval
+```
 
 ## Safety
 
