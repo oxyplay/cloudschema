@@ -1,5 +1,9 @@
 import { z } from 'zod'
 
+const nullToUndefined = (value: unknown) => value === null ? undefined : value
+const optionalString = z.preprocess(nullToUndefined, z.string().optional())
+const optionalNumber = z.preprocess(nullToUndefined, z.number().optional())
+
 export const generateInfraRequestSchema = z.object({
   projectDescription: z.string().min(8),
   modules: z.array(z.string()).min(1),
@@ -18,8 +22,8 @@ const qualityReviewSchema = z.object({
     category: z.string(),
     title: z.string(),
     description: z.string(),
-    suggestion: z.string().optional(),
-    lineNumber: z.number().optional()
+    suggestion: optionalString,
+    lineNumber: optionalNumber
   }))
 })
 
