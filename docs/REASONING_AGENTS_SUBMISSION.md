@@ -13,7 +13,7 @@ Track: **Battle #2 - Reasoning Agents with Microsoft Foundry**
 CloudSchema aligns with the Reasoning Agents challenge because it demonstrates:
 
 - multi-step reasoning across planning, generation, verification, repair, review, and explanation
-- specialised agent responsibilities coordinated by a server-side orchestration workflow
+- specialized agent responsibilities coordinated by a server-side orchestration workflow
 - Microsoft IQ grounding through a retrievable standards provider with citations and local fallback
 - external tool integration with the Azure Bicep CLI compiler
 - reliability and safety controls for secrets, synthetic data, and review-before-deploy workflows
@@ -31,7 +31,7 @@ Example prompt:
 | Agent | Responsibility | Inputs | Outputs |
 | --- | --- | --- | --- |
 | Architecture Planner | Maps the project description and selected modules to an Azure architecture graph | user prompt, selected modules | architecture graph, module summary |
-| Foundry IQ Standards Agent | Retrieves approved synthetic infrastructure standards | `foundry_iq_knowledge/company_standards.md` | standards applied to generation and review |
+| Foundry IQ Standards Agent | Retrieves approved infrastructure standards through the standards provider | Azure AI Search when configured, synthetic local fallback for demo mode | standards applied to generation and review |
 | Bicep Generator | Produces initial Bicep | project summary, modules, standards | `main.bicep` candidate |
 | Compiler Validator | Verifies Bicep with an external deterministic tool | Bicep candidate | compile pass/fail, compiler diagnostics |
 | Self-Repair Agent | Repairs invalid Bicep from compiler feedback | Bicep candidate, compiler diagnostics | revised Bicep candidate |
@@ -60,7 +60,7 @@ CloudSchema uses a standards provider boundary to ground generated infrastructur
 Knowledge sources:
 
 - Azure AI Search index when `AZURE_AI_SEARCH_*` configuration is present
-- `foundry_iq_knowledge/company_standards.md` as the local Foundry IQ-style fallback
+- `foundry_iq_knowledge/company_standards.md` as the local Foundry IQ-style fallback for reliable demo mode
 
 Grounded standards include:
 
@@ -69,7 +69,7 @@ Grounded standards include:
 - generated templates must avoid real secrets and hard-coded credentials
 - beginner demos should prefer small, understandable infrastructure patterns
 
-The app is configured for Azure OpenAI / Azure AI Foundry when credentials are available, with deterministic fallback behaviour for reliable demos.
+The app is configured for Azure OpenAI / Azure AI Foundry when credentials are available, with deterministic local fallbacks for reliable demos.
 
 Each generation response includes `standardsProvider` and `standardsCitations`, which are displayed in the UI so the demo can show the grounding source used for the run.
 

@@ -51,4 +51,4 @@ Use this checklist before linking the project to the Microsoft Agents League Rea
 
 ## Recommended Project Description
 
-CloudSchema is a multi-agent infrastructure reasoning tutor for beginner engineers. It converts a plain-language application idea into validated Azure Bicep using a planner-executor-verifier-repair-critic-explainer workflow. The system is grounded in a synthetic Foundry IQ-style standards knowledge source, validates output with the Azure Bicep CLI, repairs compiler failures, reviews quality risks, and explains every generated code block in beginner-friendly language.
+CloudSchema is a multi-agent infrastructure reasoning tutor for beginner engineers. It converts a plain-language application idea into validated Azure Bicep using a planner-executor-verifier-repair-critic-explainer workflow. The system is grounded through a standards provider that supports Azure AI Search when configured and a synthetic Foundry IQ-style fallback for reliable demo mode. It validates output with the Azure Bicep CLI, repairs compiler failures, reviews quality risks, and explains every generated code block in beginner-friendly language.
